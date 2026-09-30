@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ComicCraft - AI Comic Story Creator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="hero">
+    <div>
+        <p class="eyebrow">AI COMIC CREATOR</p>
+        <h1>Comic<span>Craft</span></h1>
+        <p>Turn a simple idea into an original comic story using Gemini.</p>
+    </div>
+</header>
+
+<main class="container">
+    <section class="card">
+        <h2>Create your comic</h2>
+
+        <label for="idea">Story idea</label>
+        <textarea id="idea" placeholder="Example: A young inventor discovers a mysterious robot in an old workshop..."></textarea>
+
+        <div class="grid">
+            <div>
+                <label for="genre">Genre</label>
+                <select id="genre">
+                    <option>Adventure</option>
+                    <option>Fantasy</option>
+                    <option>Science Fiction</option>
+                    <option>Comedy</option>
+                    <option>Mystery</option>
+                    <option>Friendship</option>
+                </select>
+            </div>
+
+            <div>
+                <label for="panels">Panels</label>
+                <select id="panels">
+                    <option value="4">4</option>
+                    <option value="6">6</option>
+                    <option value="8">8</option>
+                </select>
+            </div>
+        </div>
+
+        <label for="characters">Characters (optional)</label>
+        <input id="characters" placeholder="Example: Arjun, a curious 18-year-old inventor; Bolt, a friendly robot">
+
+        <button id="generateBtn" onclick="generateStory()">Generate Comic Story</button>
+        <p id="status"></p>
+    </section>
+
+    <section id="result" class="hidden">
+        <div class="card">
+            <h2 id="title"></h2>
+            <p id="logline" class="logline"></p>
+
+            <h3>Characters</h3>
+            <div id="charactersOutput" class="character-list"></div>
+
+            <div class="toolbar">
+                <button onclick="downloadStory()">Download Story</button>
+            </div>
+        </div>
+
+        <div id="panelsOutput" class="panels"></div>
+    </section>
+</main>
+
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
